@@ -156,8 +156,9 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint16_t digit;
-	float r, u;
+	float widerstand, spannung;
 	uint8_t c;
+	float temperature;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -182,9 +183,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  digit = getDigitBy(30);
-  r = Widerstand_NTC(30);
-  u = Spannung(r);
+  temperature = 20;
+  digit = getDigitBy(temperature);
+  widerstand = Widerstand_NTC(temperature);
+  spannung = Spannung(widerstand);
   /* USER CODE END 2 */
 
   /* Infinite loop */
