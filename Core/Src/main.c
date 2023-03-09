@@ -120,7 +120,7 @@ void LTC1658_WriteData(uint16_t data){
 
 	//Die 2 letzte Bits werden nicht berücksichtigt. Data soll um 2 Bit nach
 	//links verschoben werden.
-	data <<= 2;
+	//data <<= 2;
 
 
 	//Aktiviere Das IC durch Chip select (Low)
