@@ -1,0 +1,20 @@
+Beschreibung von TEC Controller
+
+TEC Controller wird in kombination mit Peltier-Element für die Kühlung oder Heizung eingesetzt.
+Die Wärme wird dabei von einer Seite zur andere Seite übertragen je nach Richtung von Strom der 
+über TEC+ und TEC- fließt.
+Peltier-Elemente sind zum Besispiel Wärmepumpen die von TEC Controller angesteuert werden können.
+Das Ziel hier ist das Peltier-Element auf einer konstante Temperatur einzuhalten.
+Um den TEC Controller zu realisieren wird ein Thermistor (NTC) mit 10Kohm benötigt.
+Über den Software kann der Nutzer ein Temperaturwert eingeben und dieser Wert soll an dem Peltier-Element eingehalten
+werden. 
+
+Input Werte von TEC Controller
+
+Die Temperaturänderung hängt zusammen mit dem Widerstand von Thermistor und das führt zu einer Spannungsänderung an den NTC.
+Mit Hilfe von Spannungsteiler kann die Referenzspannung von DAC-Wandler verwendet werden um die Spannungsänderung
+and dem NTC zu berechnen. Dieser Spannungsausfall an dem NTC soll im besten fall genau gleich die Spannung
+am Ausgang von DAC-Wandler sein, die Spannung entspricht dann die Temperatur die erreicht werden soll.
+Die gerechnete Spannung an NTC soll dann in digitale Wert (14Bit) umgerechnet werden und die gerechnete digitaler
+Wert soll über SPI an der DAC-Wandler (LTC1658) gesendet werden.
+So kann der Ausgang mit der Spannung an NTC verglichen werden.
